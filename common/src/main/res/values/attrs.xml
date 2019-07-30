@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--昼夜模式主色调-->
+    <attr name="dayNightBackground" format="color|reference" />
+    <attr name="dayNightOneTextColor" format="color|reference" />
+    <attr name="dayNightTwoTextColor" format="color|reference" />
+    <attr name="dayNightThreeTextColor" format="color|reference" />
+    <attr name="dayNightBackgroundDrawable" format="color|reference" />
+
+    <declare-styleable name="DayNightMode">
+        <attr name="dayNightBackgroundAttr" format="string|reference" /><!--切换背景属性-->
+        <attr name="dayNightOneTextColorAttr" format="string|reference" /><!--切换一级字体颜色属性-->
+        <attr name="dayNightTwoTextColorAttr" format="string|reference" /><!--切换二级字体颜色属性-->
+        <attr name="dayNightThreeTextColorAttr" format="string|reference" /><!--切换三级字体颜色属性-->
+        <attr name="dayNightBackgroundDrawableAttr" format="string|reference" /><!--切换背景图片属性-->
+    </declare-styleable>
+    <!-- 声明属性级的名称 -->
+    <declare-styleable name="TopPanel">
+
+        <!-- 声明一个属性，整型 -->
+        <attr name="left_type" format="string" />
+        <!-- 声明一个属性，字符串 -->
+        <attr name="right_type" format="string" />
+        <!-- 声明一个属性，字符串 -->
+        <attr name="title" format="string" />
+        <!-- 声明一个属性，引用，引用资源id -->
+        <attr name="test_bitmap" format="reference" />
+        <attr name="bottom_line" format="boolean" />
+    </declare-styleable>
+
+</resources>

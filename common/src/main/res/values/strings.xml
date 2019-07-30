@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="net_error">网络访问错误，请稍后再试</string>
+    <string name="empty">还没有数据哦</string>
+    <string name="loading">请稍后...</string>
+    <string name="reload">重新尝试</string>
+    <string name="no_net">网络不可用,请检查你的网络</string>
+    <string name="app_name">HQZ行情站</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+
+    <!--我的-->
+    <string name="setting">设置</string>
+    <string name="help">帮助和反馈</string>
+    <string name="about_us">关于我们</string>
+    <string name="change_psw">修改密码</string>
+    <string name="log_out">退出</string>
+
+
+
+
+    <!-- Device -->
+
+    <!--闹钟-->
+    <string name="mon">周一</string>
+    <string name="tue">周二</string>
+    <string name="wed">周三</string>
+    <string name="thu">周四</string>
+    <string name="fri">周五</string>
+    <string name="sat">周六</string>
+    <string name="sun">周日</string>
+    <string name="cycle_sure">确定</string>
+
+
+    <!--首页-->
+    <string name="main_button1">首页</string>
+    <string name="main_button2">发圈</string>
+    <string name="main_button3">购物车</string>
+    <string name="main_button4">我的</string>
+</resources>

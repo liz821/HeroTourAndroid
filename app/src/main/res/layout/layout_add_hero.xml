@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+<TextView style="@style/warp_content_12sp_black"
+    android:text="添加:"/>
+    <EditText style="@style/warp_content_12sp_black"
+        android:hint="输入姓名"
+        android:layout_width="@dimen/dp_100"
+        android:layout_height="@dimen/dp_20"
+        android:background="@null"
+        android:id="@+id/ed_add_name"/>
+
+    <Button
+        android:id="@+id/add"
+        style="@style/warp_content_12sp_black"
+        android:layout_width="59dp"
+        android:layout_height="36dp"
+        android:text="添加" />
+</LinearLayout>

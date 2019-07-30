@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/topPanel_root"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@color/top_panel_bg"
+    android:layout_height="wrap_content">
+    <!-- 加线性布局防止kong了imageView之后错位 -->
+    <RelativeLayout     android:layout_width="match_parent"
+        android:background="@color/top_panel_bg"
+        android:padding="@dimen/dp_10"
+        android:layout_height="wrap_content">
+    <FrameLayout
+        android:id="@+id/layout_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/left_button"
+            android:layout_width="@dimen/dp_22"
+            android:layout_height="@dimen/dp_22"
+            android:visibility="gone"
+            android:padding="@dimen/dp_2"
+            android:layout_gravity="center"
+            android:src="@drawable/back" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+       android:layout_centerVertical="true"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/right_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:singleLine="true"
+            android:visibility="gone"
+            android:textColor="@color/top_panel_text_color"
+            android:textSize="@dimen/sp_14" />
+        <ImageView
+            android:id="@+id/right_button"
+            android:layout_width="@dimen/dp_18"
+            android:layout_height="@dimen/dp_18"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:src="@drawable/share" />
+    </LinearLayout>
+<LinearLayout
+    android:gravity="center_horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_centerInParent="true"
+    android:id="@+id/title_container"
+    >
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="marquee"
+        android:gravity="center"
+        android:singleLine="true"
+        android:text="title"
+        android:textColor="@color/top_panel_text_color"
+        android:textSize="@dimen/sp_20" />
+</LinearLayout>
+</RelativeLayout>
+
+    <ImageView
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:background="@color/top_panel_bottom_line" />
+</LinearLayout>
