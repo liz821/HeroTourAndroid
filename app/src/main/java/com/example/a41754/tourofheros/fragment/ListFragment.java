@@ -111,6 +111,7 @@ public class ListFragment extends BaseFragment {
         listAdapter.remove(position);
         Hero unique = heroDao.queryBuilder().where(HeroDao.Properties._id.eq(id)).unique();
         heroDao.delete(unique);
+        mRxManager.post(Constants.EVENT_DATACHANGE, ListFragment.class.getName());
         mRxManager.post(Constants.EVENT_LOGCHANGE, "delete  id:" + unique.get_id() + unique.getName());
 
     }
