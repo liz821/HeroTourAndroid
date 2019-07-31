@@ -11,6 +11,7 @@ import com.example.a41754.tourofheros.db.DaoSession;
 import com.example.a41754.tourofheros.db.Hero;
 import com.example.a41754.tourofheros.db.HeroDao;
 import com.jaydenxiao.common.baseapp.BaseApplication;
+
 import java.util.List;
 
 /**
@@ -26,8 +27,10 @@ public class TApplication extends BaseApplication {
     public void onCreate() {
         super.onCreate();
         application = this;
-initDao();
-                initARouter();
+        DaoSession daoSession = DaoManager.getInstance().getDaoSession();
+        HeroDao heroDao = daoSession.getHeroDao();
+        initHeros(heroDao);
+        initARouter();
 
     }
 
@@ -37,10 +40,11 @@ initDao();
         ARouter.init(application);
     }
 
+    /**
+     * 若本地无英雄,数据库插入20条数据
+     */
+    public void initHeros(HeroDao heroDao) {
 
-    private void initDao() {
-        DaoSession daoSession = DaoManager.getInstance().getDaoSession();
-        HeroDao heroDao = daoSession.getHeroDao();
         List<Hero> list = heroDao.queryBuilder().list();
         if (list.size() == 0) {
             for (int i = 0; i < 20; i++) {

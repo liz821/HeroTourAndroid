@@ -72,7 +72,7 @@ public class DetailFragment extends BaseFragment {
             case R.id.save:
                 if (!TextUtils.isEmpty(edName.getText())) {
                     String newName = edName.getText().toString();
-                    save(__id, newName);
+                    save(__id, newName,DaoManager.getInstance().getDaoSession().getHeroDao());
                     mRxManager.post(Constants.EVENT_SWITCHDETAIL, from);
                      mRxManager.post(Constants.EVENT_DATACHANGE,DetailFragment.class.getName());
                     mRxManager.post(Constants.EVENT_LOGCHANGE, "update: ID:" + __id + "name:" + __name + "->" + newName);
@@ -81,8 +81,7 @@ public class DetailFragment extends BaseFragment {
         }
     }
 
-    void save(int id, String name) {
-        HeroDao heroDao = DaoManager.getInstance().getDaoSession().getHeroDao();
+    void save(int id, String name,HeroDao heroDao) {
         Hero unique = heroDao.queryBuilder().where(HeroDao.Properties._id.eq(id)).unique();
         unique.setName(name);
         heroDao.update(unique);
