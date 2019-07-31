@@ -137,7 +137,7 @@ public class ListFragment extends BaseFragment {
             rvList.smoothScrollToPosition(listAdapter.getData().size() - 1);
             mRxManager.post(Constants.EVENT_DATACHANGE, ListFragment.class.getName());
             mRxManager.post(Constants.EVENT_LOGCHANGE, "add  id:" + id + name);
-
+            edAddName.setText("");
         } else
             ToastUitl.showShort("已存在");
     }
