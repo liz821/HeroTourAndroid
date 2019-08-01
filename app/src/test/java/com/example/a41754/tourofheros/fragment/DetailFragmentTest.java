@@ -24,9 +24,7 @@ public class DetailFragmentTest {
     @Mock
     private
     QueryBuilder queryBuilder;
-    @Mock
-    private
-    WhereCondition whereCondition;
+
     @Spy
     DetailFragment detailFragment;
 
