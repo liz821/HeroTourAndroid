@@ -11,6 +11,7 @@ import com.example.a41754.tourofheros.R;
 import com.example.a41754.tourofheros.db.DaoManager;
 import com.example.a41754.tourofheros.db.Hero;
 import com.example.a41754.tourofheros.db.HeroDao;
+import com.example.a41754.tourofheros.db.HeroDaoUtil;
 import com.jaydenxiao.common.base.BaseFragment;
 import com.jaydenxiao.common.commonutils.ToastUitl;
 
@@ -72,7 +73,7 @@ public class DetailFragment extends BaseFragment {
             case R.id.save:
                 if (!TextUtils.isEmpty(edName.getText())) {
                     String newName = edName.getText().toString();
-                    save(__id, newName, DaoManager.getInstance().getDaoSession().getHeroDao());
+                    save(Long.parseLong(""+__id), newName, DaoManager.getInstance().getDaoSession().getHeroDao());
                     mRxManager.post(Constants.EVENT_SWITCHDETAIL, from);
                     mRxManager.post(Constants.EVENT_DATACHANGE, DetailFragment.class.getName());
                     mRxManager.post(Constants.EVENT_LOGCHANGE, "update: ID:" + __id + "name:" + __name + "->" + newName);
@@ -81,8 +82,8 @@ public class DetailFragment extends BaseFragment {
         }
     }
 
-    void save(int id, String name, HeroDao heroDao) {
-        Hero unique = heroDao.queryBuilder().where(HeroDao.Properties._id.eq(id)).unique();
+    void save(Long id, String name, HeroDao heroDao) {
+        Hero unique = HeroDaoUtil.getHeroUniqueFromId(id);
         unique.setName(name);
         heroDao.update(unique);
     }

@@ -5,6 +5,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -45,11 +46,10 @@ public class DashFragment extends BaseFragment {
 
     @Override
     public void initPresenter() {
-
     }
 
     TopAdapter topAdapter;
-    ArrayList<HeroBean> heroBeans;
+    ArrayList<HeroBean> heroBeans=new ArrayList<>();
     PopupMenu popupMenu;
     Menu menu;
 
@@ -69,7 +69,9 @@ public class DashFragment extends BaseFragment {
 
         topAdapter = new TopAdapter();
         topAdapter.bindToRecyclerView(topHeroRV);
-        queryAndSetData();
+        queryAndSetData(DaoManager.getInstance().getDaoSession().getHeroDao().queryBuilder()
+                .list(),heroBeans,topAdapter);
+
 
         topAdapter.setOnItemClickListener((adapter, view, position) -> {
             HeroBean heroBean = heroBeans.get(position);
@@ -96,17 +98,17 @@ public class DashFragment extends BaseFragment {
             @Override
             public void accept(String from) throws Exception {
                 if (!from.equals(DashFragment.class.getName()))
-                    queryAndSetData();
+                    queryAndSetData(DaoManager.getInstance().getDaoSession()
+                            .getHeroDao().queryBuilder().list(),heroBeans,topAdapter);
             }
         });
     }
 
-    private void queryAndSetData() {
-        List<Hero> list = DaoManager.getInstance().getDaoSession().getHeroDao().queryBuilder().list();
+    public void queryAndSetData(List<Hero> list, ArrayList<HeroBean> heroBeans,TopAdapter topAdapter) {
         if (list.size() == 0)
             ToastUitl.showShort("暂无英雄,请添加");
         else {
-            heroBeans = new ArrayList<>();
+            heroBeans.clear();
             for (int i = 0; i < list.size() && i < 4; i++) {
                 Hero hero = list.get(i);
                 HeroBean heroBean = new HeroBean();

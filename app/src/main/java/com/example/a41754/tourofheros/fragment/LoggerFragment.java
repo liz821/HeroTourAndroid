@@ -40,7 +40,7 @@ public class LoggerFragment extends BaseFragment {
         rvLog.setLayoutManager(new LinearLayoutManager(getContext()));
         adapter = new LoggerAdapter();
         adapter.bindToRecyclerView(rvLog);
-        clean();
+        clean(adapter,root);
 
         mRxManager.on(Constants.EVENT_LOGCHANGE, new Consumer<String>() {
             @Override
@@ -55,7 +55,7 @@ public class LoggerFragment extends BaseFragment {
 
     }
 
-    void clean() {
+    public void clean(LoggerAdapter adapter,LinearLayout root) {
         logs = new ArrayList<>();
         adapter.setNewData(logs);
         root.setVisibility(View.INVISIBLE);
@@ -64,6 +64,6 @@ public class LoggerFragment extends BaseFragment {
 
     @OnClick(R.id.bt)
     public void onClick() {
-        clean();
+        clean(adapter,root);
     }
 }
